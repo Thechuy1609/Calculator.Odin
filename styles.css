@@ -1,0 +1,28 @@
+.container {
+    background-color: rgb(57, 92, 140);
+    margin: 100px;
+    height: 400px;
+    width: 300px;
+    margin-left: 550px;
+    border: solid rgb(0, 0, 0);
+    border-width: 3px;
+}
+.display{
+background-color: rgb(214, 214, 214);
+height: 100px;
+width: 270px;
+margin: 10px;
+border: solid black;
+border-width: 5px;
+}
+.n1,.n2,.n3,.n4,.n5,.n6,.n7,.n8,.n9,.n10{
+   background-color: white;
+   height: 20px;
+   width: 20px;
+   align-items: center;
+}
+.numbers{
+   display: flex;
+   gap: 4px;
+  
+}
