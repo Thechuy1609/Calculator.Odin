@@ -1,9 +1,9 @@
 .container {
     background-color: rgb(57, 92, 140);
     margin: 100px;
-    height: 400px;
+    height: 450px;
     width: 300px;
-    margin-left: 550px;
+    margin-left: 150px;
     border: solid rgb(0, 0, 0);
     border-width: 3px;
 }
@@ -14,15 +14,43 @@ width: 270px;
 margin: 10px;
 border: solid black;
 border-width: 5px;
+text-align:right;
+font-size: 70px;
+color: black;
+
 }
-.n1,.n2,.n3,.n4,.n5,.n6,.n7,.n8,.n9,.n10{
-   background-color: white;
-   height: 20px;
-   width: 20px;
-   align-items: center;
+
+.AC{
+   background-color: rgb(255, 0, 0);
 }
+
 .numbers{
-   display: flex;
-   gap: 4px;
-  
+   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  padding: 10px;
+
+}
+
+button {
+   border: solid black;
+   font-weight: initial;
+   font-size: 2em;
+   font-family: monospace;
+   color: black;
+   background-color: orange;
+   border-radius: 5px;
+
+}
+
+button:hover{
+   background-color: rgb(255, 190, 77);
+}
+
+.operator{
+   background-color: rgb(255, 255, 0);
+}
+
+.equal{
+   background-color: rgb(7, 201, 255);
 }
