@@ -1,14 +1,17 @@
 let displayValue = "0";
 let operanD = null ;
 let firstOperator = null;
+let secondOperator = null;
+let result;
 const buttons = document.querySelectorAll('button');
 
 let data = [];
 let data2 = [];
+let data3 = [];
 
 function add(value1,value2){
 let result = value1 + value2;
-return result
+console.log(result)
 }
 function substract(value1,value2){
     let result = value1 - value2;
@@ -59,41 +62,75 @@ function clickButton() {
 clickButton();
 
 function inputOperand(operand){
-if(displayValue == '0' || displayValue == 0) {
+if(displayValue == "0" && secondOperator == null){
 displayValue = operand;
+firstOperator = operand;
+return firstOperator;
+}
+else if(displayValue == "" ||  secondOperator > 0){
+displayValue += operand;
+secondOperator = "";
+secondOperator = operand;
+data2.push(displayValue);
+secondOperator = data2[data2.length - 1];
+return secondOperator;
 }
 else if(displayValue.length > 7){
     displayValue = "0";
     data = []
 }
-else if(displayValue.length >= 1 == true){
+else if(displayValue.length > 0 && secondOperator == null){
 displayValue += operand;
-};
 data.push(displayValue);
 firstOperator = data[data.length - 1];
-if(firstOperator.includes("+" || "-"||"*"||"÷")){
-displayValue = operand;
-data2.push(displayValue)
+}
+else if(data3.includes("+" )){
+    displayValue = ""
+}
+else if(data3.includes("-" )){
+    displayValue = ""
+}
+else if(data3.includes("*" )){
+    displayValue = ""
+}
+else if(data3.includes("÷" )){
+    displayValue = ""
 }
 }
-
 
 
 function inputOperator(operator){
-    if(displayValue.length > 0 ) {
-        displayValue += operator;
+    if(displayValue.length > 0) {
+        data3.push(operator);
+        displayValue = "";
         };
 
 
     }
 
 
-
-
-
-
-
-
-function operate(firstNumber,operator,secondNumber){
-    Number(firstOperator);
+function inputEquals(){
+Number(firstOperator);
+Number(secondOperator);
+let x = (firstOperator * 1)// turning first number string into a number
+let y = (secondOperator * 1)// turning second number string into a number;
+    console.log(x);
+    console.log(y);
+if(data3.includes("+")){
+   result = x+y
 }
+else if(data3.includes("-")){
+    result = x-y
+ }
+ else if(data3.includes("*")){
+    result = x*y
+ }
+ else if(data3.includes("÷")){
+    result = x/y
+ };
+displayValue = result
+}
+
+
+
+
