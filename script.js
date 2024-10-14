@@ -67,7 +67,9 @@ displayValue = operand;
 firstOperator = operand;
 return firstOperator;
 }
-else if(displayValue == "" ||  secondOperator > 0){
+else if(displayValue == "" ||  secondOperator > 0 ||
+    firstOperator == result
+){
 displayValue += operand;
 secondOperator = "";
 secondOperator = operand;
@@ -95,23 +97,32 @@ else if(data3.includes("*" )){
 }
 else if(data3.includes("÷" )){
     displayValue = ""
+};
+if(result == firstOperator){
+secondOperator += operand;
+let x = (firstOperator * 1);
+return x
+
 }
 }
 
 
 function inputOperator(operator){
+
     if(displayValue.length > 0) {
         data3.push(operator);
         displayValue = "";
         };
+        secondOperator = null;
+    if(firstOperator == result){
+        displayValue = "";
+        }
 
 
     }
 
 
 function inputEquals(){
-Number(firstOperator);
-Number(secondOperator);
 let x = (firstOperator * 1)// turning first number string into a number
 let y = (secondOperator * 1)// turning second number string into a number;
     console.log(x);
@@ -128,9 +139,20 @@ else if(data3.includes("-")){
  else if(data3.includes("÷")){
     result = x/y
  };
-displayValue = result
+displayValue = result;
+firstOperator = result;
+secondOperator = 0;
+data3 = []
+
 }
 
+
+function clearDisplay(){
+    data3 = [];
+    firstOperator = 0;
+    secondOperator = 0;
+    displayValue = "0";
+}
 
 
 
