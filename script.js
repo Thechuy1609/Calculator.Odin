@@ -63,8 +63,9 @@ clickButton();
 
 function inputOperand(operand){
 if(displayValue == "0" && secondOperator == null){
-displayValue = operand;
-firstOperator = operand;
+displayValue = "";
+displayValue += operand;
+firstOperator += operand;
 return firstOperator;
 }
 else if(displayValue == "" ||  secondOperator > 0 ||
@@ -75,6 +76,7 @@ secondOperator = "";
 secondOperator = operand;
 data2.push(displayValue);
 secondOperator = data2[data2.length - 1];
+secondOperator = (secondOperator*1);
 return secondOperator;
 }
 else if(displayValue.length > 7){
@@ -108,19 +110,15 @@ return x
 
 
 function inputOperator(operator){
-
     if(displayValue.length > 0) {
         data3.push(operator);
         displayValue = "";
         };
-        secondOperator = null;
     if(firstOperator == result){
         displayValue = "";
+        data3.push(operator);
         }
-
-
-    }
-
+}
 
 function inputEquals(){
 let x = (firstOperator * 1)// turning first number string into a number
@@ -138,20 +136,21 @@ else if(data3.includes("-")){
  }
  else if(data3.includes("÷")){
     result = x/y
- };
+ }
 displayValue = result;
 firstOperator = result;
 secondOperator = 0;
 data3 = []
-
 }
 
 
 function clearDisplay(){
-    data3 = [];
-    firstOperator = 0;
-    secondOperator = 0;
+    firstOperator = null;
+    secondOperator = null;
     displayValue = "0";
+    data = [];
+    data2 = [];
+    data3 = [];
 }
 
 
