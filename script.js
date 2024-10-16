@@ -32,6 +32,9 @@ function divide(value1,value2){
 function updateDisplay() {
     const display = document.getElementById('display');
     display.innerText = displayValue;
+if(displayValue.length > 7){
+        clearDisplay();
+    }
 }
 updateDisplay();
 
@@ -64,6 +67,7 @@ clickButton();
 function inputOperand(operand){
 if(displayValue == "0" && secondOperator == null){
 displayValue = "";
+firstOperator = ""
 displayValue += operand;
 firstOperator += operand;
 return firstOperator;
@@ -121,6 +125,9 @@ function inputOperator(operator){
 }
 
 function inputEquals(){
+if(firstOperator == null || secondOperator == null ||
+data3 == undefined || data3 == [] || secondOperator === 0
+){return displayValue = "lmao"};
 let x = (firstOperator * 1)// turning first number string into a number
 let y = (secondOperator * 1)// turning second number string into a number;
     console.log(x);
@@ -137,7 +144,7 @@ else if(data3.includes("-")){
  else if(data3.includes("÷")){
     result = x/y
  }
-displayValue = result;
+displayValue = roundAccurately(result, 4);
 firstOperator = result;
 secondOperator = 0;
 data3 = []
@@ -153,5 +160,16 @@ function clearDisplay(){
     data3 = [];
 }
 
+function roundAccurately(num, places) {
+    return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
+}
 
 
+function inputDecimal(){
+if(secondOperator == null || secondOperator == 0 ){
+displayValue = `${firstOperator + "."}`;
+}
+else{
+    displayValue = `${secondOperator + "."}`;
+    }
+}
